@@ -439,6 +439,7 @@
                 { name: "BigQuery", url: "https://console.cloud.google.com/bigquery?referrer=search&inv=1&invt=Ab3swQ&project=exalted-cell-437605-g6&ws=!1m0" },
                 { name: "对象存储 - 控制台", url: "https://console.cloud.tencent.com/cos/bucket" },
                 { name: "我的域名 - 控制台", url: "https://console.cloud.tencent.com/domain/all-domain/all" },
+                { name: "免费域名", url: "https://dash.domain.digitalplat.org/panel/main?page=%2Fpanel%2Fdomains" },
                 { name: "Vercel", url: "https://vercel.com/hzcyds-projects/my-query-app" },
                 { name: "Cloudflare Dashboard", url: "https://dash.cloudflare.com/d4a9883c0a7fa3caa0576fa68496a152/pages/view/my-query-app" },
             ]
@@ -518,7 +519,7 @@
                 category.links.forEach(link => {
                     const domain = new URL(link.url).hostname;
                     // Using a domestic-friendly icon service for better coverage in China.
-                    const faviconUrl = `https://api.iowen.cn/favicon/${domain}.png`;
+			const faviconUrl = `https://besticon-demo.vercel.app/api/icons?url=${domain}&size=80..120..200`;
                     
                     // Create elements programmatically to robustly handle image loading errors.
                     // Directly attaching event listeners with JS is more reliable than inline attributes.
