@@ -11,7 +11,7 @@
     <style>
         /* CSS resets and base styles */
         :root {
-            --bg-url: url('https://date-image-1371205323.cos.ap-shanghai.myqcloud.com/Gn2oNMuaQAEYQwz.jpg');
+            --bg-url: url('http://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202506/743b879d86f97178bce4bb77e4977802--1448555208.jpg');
             --text-primary: #ffffff;
             --text-secondary: #e0e0e0;
             --text-dark: #2c3e50;
@@ -290,6 +290,18 @@
             ]
         },
         {
+            category: "数据库",
+            links: [
+                { name: "Cloud Run", url: "https://console.cloud.google.com/run/detail/asia-east2/product-search-api/source?inv=1&invt=Ab3XBg&project=exalted-cell-437605-g6" },
+                { name: "BigQuery", url: "https://console.cloud.google.com/bigquery?referrer=search&inv=1&invt=Ab3swQ&project=exalted-cell-437605-g6&ws=!1m0" },
+                { name: "对象存储 - 控制台", url: "https://console.cloud.tencent.com/cos/bucket" },
+                { name: "腾讯域名", url: "https://console.cloud.tencent.com/domain/all-domain/all" },
+                { name: "免费域名", url: "https://dash.domain.digitalplat.org/panel/main?page=%2Fpanel%2Fdomains" },
+                { name: "Vercel", url: "https://vercel.com/hzcyds-projects/my-query-app" },
+                { name: "Cloudflare Dashboard", url: "https://dash.cloudflare.com/d4a9883c0a7fa3caa0576fa68496a152/pages/view/my-query-app" },
+            ]
+        },
+        {
             category: "AI",
             links: [
                 { name: "Google AI Studio", url: "https://aistudio.google.com/prompts/new_chat" },
@@ -431,18 +443,6 @@
                 { name: "eRank", url: "https://erank.com/login?location=%2Fshop-info" },
                 { name: "Adspower", url: "https://app.adspower.net/registration?ref=mNXl04&snid=1750773453052150079_67QXmsxC&x_collect_uid=c7d24cc822ebe6461dadd937570a5ca6" },
                 { name: "Spocket", url: "https://www.spocket.co/?utm_source=affiliate&utm_medium=content&utm_campaign=88cc2b72a87c&pscd=get.spocket.co&ps_partner_key=ODhjYzJiNzJhODdj&ps_xid=tf4Ik8C00mclQo&gsxid=tf4Ik8C00mclQo&gspk=ODhjYzJiNzJhODdj" },
-            ]
-        },
-         {
-            category: "数据库",
-            links: [
-                { name: "Cloud Run", url: "https://console.cloud.google.com/run/detail/asia-east2/product-search-api/source?inv=1&invt=Ab3XBg&project=exalted-cell-437605-g6" },
-                { name: "BigQuery", url: "https://console.cloud.google.com/bigquery?referrer=search&inv=1&invt=Ab3swQ&project=exalted-cell-437605-g6&ws=!1m0" },
-                { name: "对象存储 - 控制台", url: "https://console.cloud.tencent.com/cos/bucket" },
-                { name: "腾讯域名", url: "https://console.cloud.tencent.com/domain/all-domain/all" },
-                { name: "免费域名", url: "https://dash.domain.digitalplat.org/panel/main?page=%2Fpanel%2Fdomains" },
-                { name: "Vercel", url: "https://vercel.com/hzcyds-projects/my-query-app" },
-                { name: "Cloudflare Dashboard", url: "https://dash.cloudflare.com/d4a9883c0a7fa3caa0576fa68496a152/pages/view/my-query-app" },
             ]
         },
         {
