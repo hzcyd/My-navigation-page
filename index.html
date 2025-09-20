@@ -9,19 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- 引入 Font Awesome 图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* CSS resets and base styles */
         :root {
-            --bg-url: url('https://github.com/hzcyd/My-navigation-page/blob/main/image/IMG_0985.JPG?raw=true');
-            --text-primary: #ffffff;
-            --text-secondary: #e0e0e0;
-            --text-dark: #2c3e50;
-            --container-bg: transparent; 
-            --item-bg: rgba(255, 255, 255, 0.2);
-            --border-color: rgba(255, 255, 255, 0.3);
-            --shadow-light: rgba(0, 0, 0, 0.1);
-            --shadow-dark: rgba(0, 0, 0, 0.2);
+            --bg-url: url('http://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202503/62dadbaf02682816deeced86deeb3667--3599006602.jpg'); /* 确保这里的图片路径是正确的 */
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --card-bg: #2c303a;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-color: #e84393;
+            --shadow-dark: rgba(0, 0, 0, 0.4);
         }
 
         * {
@@ -38,7 +36,7 @@
             align-items: flex-start;
             min-height: 100vh;
             padding: 2rem;
-            position: relative; /* 为伪元素定位提供上下文 */
+            position: relative;
         }
         
         body::before {
@@ -52,13 +50,13 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            z-index: -1; /* 将背景层置于最底层 */
+            z-index: -1;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
-            background-color: var(--container-bg);
+            background-color: transparent;
             padding: 2.5rem;
             border-radius: 1.5rem;
             text-align: center;
@@ -78,15 +76,17 @@
         .header .clock {
             font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 700;
-            text-shadow: 0 2px 10px var(--shadow-dark);
+            color: var(--accent-color);
+            text-shadow: 0 0 15px var(--accent-color);
             margin-bottom: 0rem;
         }
 
         .header .date {
              font-size: clamp(0.9rem, 2vw, 1.1rem);
-             color: var(--text-secondary);
              margin-bottom: 1.5rem;
-             text-shadow: 0 1px 5px var(--shadow-dark);
+             /* 【修改】调整颜色并增强阴影以提高可读性 */
+             color: #e0e0e0;
+             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
         }
 
         .search-wrapper {
@@ -100,13 +100,12 @@
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             border: 1px solid var(--border-color);
-            background-color: var(--item-bg);
+            background-color: var(--card-bg);
             color: var(--text-primary);
             font-size: 1rem;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             outline: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
         .search-input::placeholder {
@@ -114,8 +113,9 @@
         }
         
         .search-input:focus {
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 2px var(--accent-color);
+            background-color: #3a3e4a;
+            border-color: var(--accent-color);
         }
 
         .category {
@@ -127,8 +127,10 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: none;
-            text-shadow: 0 1px 3px var(--shadow-dark);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1rem;
+            /* 【修改】增强阴影以提高可读性 */
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
         }
         
         .links-grid {
@@ -138,9 +140,9 @@
         }
 
         .link-item {
-            background-color: var(--item-bg);
+            background-color: var(--card-bg);
             border-radius: 0.75rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border-color);
@@ -148,14 +150,14 @@
             align-items: center;
             justify-content: center;
             aspect-ratio: 1 / 1;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px var(--shadow-dark);
         }
 
         .link-item:hover {
             transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 10px 20px var(--shadow-dark);
-            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px -2px var(--accent-color), 0 8px 25px var(--shadow-dark);
+            border-color: var(--accent-color);
+            background-color: #3a3e4a;
         }
 
         .link-item a {
@@ -185,11 +187,11 @@
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 2px 8px var(--shadow-light);
-            background-color: white; /* 避免透明PNG背景问题 */
+            background-color: white;
         }
         
         .fallback-icon {
-            display: none; /* 默认隐藏 */
+            display: none;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
@@ -206,6 +208,11 @@
             align-items: center;
             justify-content: center;
             text-shadow: 0 1px 3px var(--shadow-dark);
+            transition: color 0.3s ease;
+        }
+
+        .link-item:hover .fa-icon {
+            color: var(--accent-color);
         }
 
         .link-item a span {
@@ -237,9 +244,7 @@
             display: none;
             padding: 2rem;
             color: var(--text-secondary);
-            background-color: var(--item-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background-color: var(--card-bg);
             border-radius: 1rem;
         }
     </style>
@@ -266,7 +271,8 @@
         <div class="footer">
             <p>© 个人导航页</p>
         </div>
-    </div>
+    
+
 
     <script>
     // --------------------------------------------------
@@ -332,7 +338,6 @@
                 { name: "MinerU 提取文档", url: "https://mineru.net/OpenSourceTools/Extractor?source=github", icon: "fa-solid fa-file-export" },
                 { name: "Convertio", url: "https://convertio.co/zh/", icon: "fa-solid fa-right-left" },
                 { name: "万能视频图片解析下载", url: "https://snapany.com/zh", icon: "fa-solid fa-download" },
-				{ name: "快手去水印", url: "https://dy.kukutool.com/", icon: "fa-solid fa-droplet-slash" },
                 { name: "在线转换文档，图像，视频和音频文件", url: "https://www.aconvert.com/", icon: "fa-solid fa-recycle" },
                 { name: "CrossOver", url: "https://www.crossoverchina.com/", icon: "fa-brands fa-windows" },
                 { name: "Adobe全家桶", url: "http://124.221.4.205/", icon: "fa-solid fa-photo-film" },
@@ -388,6 +393,7 @@
                 { name: "Suno AI 声音", url: "https://www.suno.ai/", icon: "fa-solid fa-music" },
                 { name: "ControlNet", url: "https://huggingface.co/lllyasviel/ControlNet/tree/main/models", icon: "fa-solid fa-diagram-project" },
                 { name: "NovelAI 标签超市", url: "https://tags.novelai.dev/", icon: "fa-solid fa-tags" },
+                { name: "快手去水印", url: "https://dy.kukutool.com/", icon: "fa-solid fa-droplet-slash" },
                 { name: "AI 工具搜索", url: "https://www.toolify.ai/zh/most-used", icon: "fa-solid fa-toolbox" },
                 { name: "WayToAGI 工具搜索", url: "https://www.waytoagi.com/", icon: "fa-solid fa-compass" },
                 { name: "百度网盘", url: "https://pan.baidu.com/s/1JT6BhxlTq5m_xbA6SXJrrw#list/path=%2F", icon: "fa-solid fa-hard-drive" },
@@ -408,7 +414,6 @@
                 { name: "Kuromis", url: "https://www.kuromis.com/", icon: "fa-solid fa-ghost" },
                 { name: "守候网络", url: "https://u.xn--hwqp2zit2amna.com/dashboards/modern", icon: "fa-solid fa-shield-halved" },
                 { name: "查询IP", url: "https://ip233.cn/", icon: "fa-solid fa-location-dot" },
-				{ name: "IP检测", url: "https://www.ipjiance.com", icon: "fa-solid fa-location-dot" },
                 { name: "中信wifi", url: "http://zte.home/", icon: "fa-solid fa-wifi" },
                 { name: "clash规则", url: "https://github.com/MetaCubeX/meta-rules-dat/tree/meta/geo/geosite", icon: "fa-solid fa-list-check" },
                 { name: "singbox规则", url: "https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo", icon: "fa-solid fa-list-check" },
@@ -417,8 +422,7 @@
                 { name: "sing-box-subscribe", url: "https://vercel.com/hzcyds-projects/sing-box-subscribe?status=building%2Cerror%2Cinitializing%2Cqueued%2Cready", icon: "fa-solid fa-box-archive" },
                 { name: "TG频道", url: "https://tgstat.com/", icon: "fa-brands fa-telegram" },
                 { name: "Cloudflare测速", url: "https://speed.cloudflare.com/", icon: "fa-solid fa-gauge-simple-high" },
-                { name: "免费节点", url: "https://nodefree.net/", icon: "fa-solid fa-server" },
-				{ name: "大妈vps", url: "https://www.dmit.io/clientarea.php", icon: "fa-solid fa-server" },
+                { name: "NodeFree", url: "https://nodefree.net/", icon: "fa-solid fa-server" },
             ]
         },
         {
@@ -449,7 +453,6 @@
                 { name: "AlphaNovel", url: "https://writer.alphanovel.io/", icon: "fa-solid fa-book" },
                 { name: "秀米XIUMI", url: "https://xiumi.us/#/studio/papers", icon: "fa-solid fa-newspaper" },
                 { name: "新媒宝", url: "https://www.xinmeibao.com/", icon: "fa-solid fa-thumbs-up" },
-				{ name: "PS下载", url: "https://www.yuque.com/yuanjiajia-b0v67/uxn4vr/hwvzz1i7fik749v3?singleDoc#", icon: "fa-solid fa-image" },
             ]
         },
         {
@@ -534,13 +537,11 @@
                     const iconWrapper = document.createElement('div');
                     iconWrapper.className = 'link-item-icon-wrapper';
                     
-                    // 【代码修改】现在所有链接都应该有图标了
                     if (link.icon) {
                         const iconEl = document.createElement('i');
                         iconEl.className = `fa-icon ${link.icon}`;
                         iconWrapper.appendChild(iconEl);
                     } else {
-                        // 保留这段作为后备，以防万一有链接忘记加图标
                         const fallbackIcon = document.createElement('div');
                         fallbackIcon.className = 'fallback-icon';
                         
@@ -548,7 +549,7 @@
                         const color = fallbackColors[colorIndex % fallbackColors.length];
                         fallbackIcon.style.backgroundColor = color;
                         fallbackIcon.textContent = firstChar;
-                        fallbackIcon.style.display = 'flex'; // 确保后备图标能显示
+                        fallbackIcon.style.display = 'flex';
                         iconWrapper.appendChild(fallbackIcon);
                     }
                     colorIndex++;
@@ -613,4 +614,3 @@
     </script>
 </body>
 </html>
-
