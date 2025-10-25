@@ -1,0 +1,351 @@
+// --------------------------------------------------
+// 数据中心：所有链接都在这里管理
+// 【修改】为所有链接添加 icon 属性
+// 您可以在 https://fontawesome.com/search 查找并替换图标
+// --------------------------------------------------
+const linkData = [
+    {
+        category: "常用",
+        links: [
+            { name: "百度", url: "https://www.baidu.com/", icon: "fa-solid fa-paw" },
+            { name: "Google", url: "https://www.google.com/?hl=zh-CN", icon: "fa-brands fa-google" },
+			{ name: "Google AI Studio", url: "https://aistudio.google.com/prompts/new_chat", icon: "fa-solid fa-robot" },
+            { name: "Gemini", url: "https://gemini.google.com/app", icon: "fa-solid fa-wand-magic-sparkles" },
+            { name: "ChatGPT", url: "https://chatgpt.com/", icon: "fa-solid fa-brain" },
+            { name: "软路由", url: "http://192.168.1.1/cgi-bin/luci/", icon: "fa-solid fa-gauge-high" },
+            { name: "zashboard", url: "http://192.168.1.1:9090/ui/zashboard/#/proxies", icon: "fa-solid fa-gauge-high" },
+            { name: "B站", url: "https://www.bilibili.com/", icon: "fa-brands fa-bilibili" },
+            { name: "YouTube", url: "https://www.youtube.com/", icon: "fa-brands fa-youtube" },
+            { name: "京东", url: "https://www.jd.com/", icon: "fa-solid fa-cart-shopping" },
+            { name: "淘宝", url: "https://www.taobao.com/", icon: "fa-solid fa-cart-shopping" },
+            { name: "Home Assistant", url: "http://192.168.1.1:8123/lovelace/0", icon: "fa-solid fa-house-laptop" },
+            { name: "iCloud", url: "https://www.icloud.com.cn/", icon: "fa-brands fa-apple" },
+            { name: "QQ邮箱", url: "https://mail.qq.com/cgi-bin/frame_html?sid=54G940fPiFRPMy1I&r=853ec29bae6086f5ceba4a9c9b6652d8&lang=zh", icon: "fa-brands fa-qq" },
+            { name: "gmail", url: "https://mail.google.com/mail/u/0/#inbox", icon: "fa-solid fa-envelope" },
+            { name: "github", url: "https://github.com/", icon: "fa-brands fa-github" },
+			{ name: "太合数据库", url: "https://www.mycoolapp.top", icon: "fa-solid fa-database" },
+			{ name: "地址补充", url: "https://ad.6688068.xyz", icon: "fa-solid fa-location-dot" },
+        ]
+    },
+    {
+        category: "数据库",
+        links: [
+            { name: "Cloud Run", url: "https://console.cloud.google.com/run/detail/asia-east2/product-search-api/source?inv=1&invt=Ab3XBg&project=exalted-cell-437605-g6", icon: "fa-brands fa-google" },
+            { name: "BigQuery", url: "https://console.cloud.google.com/bigquery?referrer=search&inv=1&invt=Ab3swQ&project=exalted-cell-437605-g6", icon: "fa-solid fa-database" },
+            { name: "对象存储 - 控制台", url: "https://console.cloud.tencent.com/cos/bucket", icon: "fa-solid fa-hard-drive" },
+            { name: "腾讯域名", url: "https://console.cloud.tencent.com/domain/all-domain/all", icon: "fa-solid fa-globe" },
+            { name: "免费域名", url: "https://dash.domain.digitalplat.org/panel/main?page=%2Fpanel%2Fdomains", icon: "fa-solid fa-globe" },
+		    { name: "spaceship", url: "https://www.spaceship.com/zh/", icon: "fa-solid fa-globe" },
+			{ name: "腾讯edgeone", url: "https://console.cloud.tencent.com/edgeone", icon: "fa-solid fa-play" },
+            { name: "Vercel", url: "https://vercel.com/hzcyds-projects", icon: "fa-solid fa-play" },
+            { name: "Cloudflare Dashboard", url: "https://dash.cloudflare.com/d4a9883c0a7fa3caa0576fa68496a152/pages/view/my-query-app", icon: "fa-brands fa-cloudflare" },
+			{ name: "甲骨文", url: "https://cloud.oracle.com/?region=us-phoenix-1", icon: "fa-brands fa-cloudflare" },
+        ]
+    },
+    {
+        category: "工作",
+        links: [
+            { name: "NotebookLM", url: "https://notebooklm.google.com/", icon: "fa-solid fa-book-open" },
+            { name: "西域SRM采购", url: "https://srm.ehsy.com/#/workflow/backlogFlow", icon: "fa-solid fa-truck" },
+            { name: "企事通集团", url: "https://srm.qstjt.cn/#/supplier-guide/purchase-business", icon: "fa-solid fa-building" },
+            { name: "置库后台", url: "https://shop.wdzhikugongyinglian.com/merchant/login?redirect=%2Fmerchant%2Fdashboard", icon: "fa-solid fa-warehouse" },
+            { name: "八方礼业商城", url: "https://mall.baynow.cn/web/index.php?r=mall%2Findex%2Findex", icon: "fa-solid fa-gift" },
+            { name: "有买有卖云仓", url: "https://yc.ymym123.com/shop/", icon: "fa-solid fa-cubes" },
+            { name: "美云销平台", url: "https://mcsp.midea.com/admin/#/c-bop-item/mcsp/goodsInformation/agent/list", icon: "fa-solid fa-chart-simple" },
+            { name: "安得智联", url: "https://www.annto.com/order", icon: "fa-solid fa-network-wired" },
+            { name: "美的空调库存", url: "https://www.midea.cn/s/search/search.html?category_id=10001&mtag=30007.15.4", icon: "fa-solid fa-snowflake" },
+            { name: "Saber开发平台", url: "https://mallweb.hui98.cn/#/login", icon: "fa-solid fa-code" },
+            { name: "番番寻客宝", url: "https://xunkebao.baidu.com/index.html#/", icon: "fa-solid fa-magnifying-glass-chart" },
+            { name: "中国商品信息", url: "https://www.gds.org.cn/#/home/index", icon: "fa-solid fa-barcode" },
+            { name: "docsmall", url: "https://docsmall.com/", icon: "fa-solid fa-file-zipper" },
+            { name: "Smallpdf.com", url: "https://smallpdf.com/cn#r=app", icon: "fa-solid fa-file-pdf" },
+            { name: "分割图片", url: "http://www.zuohaotu.com/cut-image.aspx", icon: "fa-solid fa-scissors" },
+            { name: "MinerU 提取文档", url: "https://mineru.net/OpenSourceTools/Extractor?source=github", icon: "fa-solid fa-file-export" },
+            { name: "Convertio", url: "https://convertio.co/zh/", icon: "fa-solid fa-right-left" },
+            { name: "万能视频图片解析下载", url: "https://snapany.com/zh", icon: "fa-solid fa-download" },
+            { name: "在线转换文档，图像，视频和音频文件", url: "https://www.aconvert.com/", icon: "fa-solid fa-recycle" },
+            { name: "CrossOver", url: "https://www.crossoverchina.com/", icon: "fa-brands fa-windows" },
+            { name: "史泰博工作台", url: "https://stbsrm.stbchina.cn/home", icon: "fa-solid fa-briefcase" },
+            { name: "海康威视供应商管理平台", url: "https://isrm.hikvision.com/SRM/NEW/?1731572058131/#/srm/index", icon: "fa-solid fa-video" },
+            { name: "齐心B2B供应链管理系统", url: "https://srm.qx.com/ELSServer_QIXIN/default2.jsp?account=987004_1001", icon: "fa-solid fa-handshake" },
+            { name: "物产商城", url: "https://www.zjmi-mall.com/pages/goods/goods-list/index?name=SY-25YC10", icon: "fa-solid fa-store" },
+            { name: "世网街商家平台", url: "http://app.vip880.com/WanWangJie_Business/login_main.do", icon: "fa-solid fa-shop" },
+            { name: "智能客服", url: "https://iop.midea.com/ics-webpage/customerService?userName=ex_ouqm1&channelCode=shuzihuachuangxinxishixiaodian&lang=zh-CN&v=1.0.1", icon: "fa-solid fa-headset" },
+			{ name: "紫萱核心", url: "https://docs.qq.com/sheet/DUUFqRGNsdnRpaWN5", icon: "fa-solid fa-table" },
+			{ name: "紫萱主推", url: "https://docs.qq.com/sheet/DUVVtcUNIcUVSR3Fa", icon: "fa-solid fa-table" },
+        ]
+    },
+    {
+        category: "娱乐媒体",
+        links: [
+            { name: "抖音", url: "https://www.douyin.com/jingxuan", icon: "fa-brands fa-tiktok" },
+            { name: "快手", url: "https://live.kuaishou.com/", icon: "fa-solid fa-camera-retro" },
+            { name: "虎牙", url: "https://www.huya.com/", icon: "fa-solid fa-video" },
+            { name: "斗鱼", url: "https://www.douyu.com/?dyshid=0-", icon: "fa-solid fa-video" },
+            { name: "阿里云盘", url: "https://www.aliyundrive.com/drive", icon: "fa-solid fa-cloud" },
+			{ name: "落雪音乐", url: "https://www.lxmusic.cc/", icon: "fa-solid fa-music" },
+			{ name: "GD音乐台", url: "https://music.gdstudio.org/", icon: "fa-solid fa-music" },
+			{ name: "无损音乐下载", url: "https://flac.music.hi.cn", icon: "fa-solid fa-music" },
+			{ name: "思菲公益站", url: "https://www.sfeii.com/", icon: "fa-solid fa-clapperboard" },
+            { name: "观影 GYING", url: "https://www.gying.net/", icon: "fa-solid fa-film" },
+            { name: "音范丝", url: "https://www.yinfans.me/", icon: "fa-solid fa-clapperboard" },
+            { name: "The Movie Database (TMDB)", url: "https://www.themoviedb.org/", icon: "fa-solid fa-ticket" },
+            { name: "SeedHub", url: "https://www.seedhub.top/categories/3/types/33/movies/#", icon: "fa-solid fa-magnet" },
+            { name: "UP云搜", url: "https://www.upyunso.com/", icon: "fa-solid fa-magnifying-glass" },
+            { name: "全盘搜", url: "https://so.yuneu.com/", icon: "fa-solid fa-magnifying-glass" },
+            { name: "众筹店铺", url: "https://faka.127255.best/", icon: "fa-solid fa-credit-card" },
+            { name: "Magpie发卡", url: "https://shop.023168.xyz/", icon: "fa-solid fa-credit-card" },
+            { name: "TANK", url: "https://x.vivo50.cc/#/login?redirect=%2Fdashboard", icon: "fa-solid fa-server" },
+            { name: "银河录像局", url: "https://nf.video/HID6", icon: "fa-solid fa-user-secret" },
+            { name: "飞行派", url: "https://spotifyzc.com/?incode=qgp4pm", icon: "fa-brands fa-spotify" },
+            { name: "Pockyt Shop", url: "https://shop.pockyt.io/wap/index", icon: "fa-solid fa-wallet" },
+        ]
+    },
+    {
+        category: "AI",
+        links: [
+            { name: "AGI飞书文档", url: "https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e", icon: "fa-solid fa-road" },
+		    { name: "即梦AI", url: "https://jimeng.jianying.com/ai-tool/home/", icon: "fa-solid fa-cloud" },
+            { name: "心流 mcp", url: "https://platform.iflow.cn/mcp", icon: "fa-solid fa-terminal" },
+            { name: "smithery mcp", url: "https://smithery.ai", icon: "fa-solid fa-toolbox" },
+            { name: "DeepSeek", url: "https://chat.deepseek.com/", icon: "fa-solid fa-brain" },
+            { name: "Grok", url: "https://grok.com/", icon: "fa-solid fa-bolt" },
+            { name: "Perplexity AI", url: "https://www.perplexity.ai/", icon: "fa-solid fa-atom" },
+            { name: "C站", url: "https://civitai.com/", icon: "fa-solid fa-image" },
+			{ name: "Hugging Face", url: "https://huggingface.co", icon: "fa-solid fa-road" },
+			{ name: "图片高清修复", url: "https://upscayl.org", icon: "fa-solid fa-image" },
+			{ name: "AI 抠图", url: "https://huggingface.co/spaces/not-lain/background-removal", icon: "fa-solid fa-panorama" },
+			{ name: "MagicQuil 重绘", url: "https://huggingface.co/spaces/AI4Editing/MagicQuill", icon: "fa-solid fa-images" },
+			{ name: "AI 换衣", url: "https://huggingface.co/spaces/Kwai-Kolors/Kolors-Virtual-Try-On", icon: "fa-solid fa-shirt" },
+            { name: "Discord", url: "https://discord.com/channels/@me", icon: "fa-brands fa-discord" },
+            { name: "Midjourney Feed", url: "https://www.midjourney.com/showcase", icon: "fa-solid fa-images" },
+            { name: "Midjourney 提示生成器", url: "https://promptfolder.com/midjourney-prompt-helper/", icon: "fa-solid fa-comment-dots" },
+            { name: "Gamma PPT", url: "https://gamma.app/?lng=zh-CN", icon: "fa-solid fa-file-powerpoint" },
+            { name: "Replit 编程", url: "https://replit.com/~", icon: "fa-solid fa-code" },
+            { name: "Suno AI 声音", url: "https://www.suno.ai/", icon: "fa-solid fa-music" },
+            { name: "ControlNet", url: "https://huggingface.co/lllyasviel/ControlNet/tree/main/models", icon: "fa-solid fa-diagram-project" },
+            { name: "NovelAI 标签超市", url: "https://tags.novelai.dev/", icon: "fa-solid fa-tags" },
+            { name: "快手去水印", url: "https://dy.kukutool.com/", icon: "fa-solid fa-droplet-slash" },
+            { name: "AI 工具搜索", url: "https://www.toolify.ai/zh/most-used", icon: "fa-solid fa-toolbox" },
+            { name: "WayToAGI 工具搜索", url: "https://www.waytoagi.com/", icon: "fa-solid fa-compass" },
+            { name: "百度网盘", url: "https://pan.baidu.com/s/1JT6BhxlTq5m_xbA6SXJrrw#list/path=%2F", icon: "fa-solid fa-hard-drive" },
+            { name: "湖南青咖汇", url: "https://wx-bgfccbhi.shanhuketang.com/PC/#/yueke3/3001407/3006012", icon: "fa-solid fa-graduation-cap" },
+        ]
+    },
+    {
+        category: "vpn",
+        links: [
+            { name: "小金鱼", url: "https://cloudyu.top/", icon: "fa-solid fa-fish" },
+            { name: "涅槃云", url: "https://theme.revival.baby/", icon: "fa-solid fa-cloud" },
+			{ name: "自建节点", url: "https://vps.6688068.xyz:50915/magua/", icon: "fa-solid fa-cloud" },
+            { name: "冰云", url: "https://xby01.xyz/console", icon: "fa-solid fa-icicles" },            
+			{ name: "SSRDOG", url: "https://dog1.ssrdog7.com/", icon: "fa-solid fa-dog" },
+			{ name: "SSRDOG导航", url: "https://dog.hosbbq.com/#/account/dashboard", icon: "fa-solid fa-dog" },
+            { name: "NiceDuck", url: "https://xn--5us811n.com/", icon: "fa-solid fa-cloud" },
+            { name: "FlowerCloud", url: "https://huacloud.net/index.html", icon: "fa-solid fa-fan" },
+            { name: "奶昔机场", url: "https://nexitallysafe.com/Main.aspx", icon: "fa-solid fa-plane" },
+            { name: "Kuromis", url: "https://www.kuromis.com/", icon: "fa-solid fa-ghost" },
+            { name: "守候网络", url: "https://u.xn--hwqp2zit2amna.com/dashboards/modern", icon: "fa-solid fa-shield-halved" },
+            { name: "查询IP", url: "https://ip233.cn/", icon: "fa-solid fa-location-dot" },
+			{ name: "住宅IP测试", url: "https://ipjiance.com/", icon: "fa-solid fa-location-dot" },
+            { name: "中信wifi", url: "http://zte.home/", icon: "fa-solid fa-wifi" },
+            { name: "clash规则", url: "https://github.com/MetaCubeX/meta-rules-dat/tree/meta/geo/geosite", icon: "fa-solid fa-list-check" },
+            { name: "singbox规则", url: "https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo", icon: "fa-solid fa-list-check" },
+            { name: "blackmatrix规则", url: "https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Loon", icon: "fa-solid fa-list-check" },
+            { name: "homeproxy下载", url: "https://fantastic-packages.github.io/packages/releases/", icon: "fa-solid fa-download" },
+            { name: "sing-box-subscribe", url: "https://vercel.com/hzcyds-projects/sing-box-subscribe?status=building%2Cerror%2Cinitializing%2Cqueued%2Cready", icon: "fa-solid fa-box-archive" },
+            { name: "TG频道", url: "https://tgstat.com/", icon: "fa-brands fa-telegram" },
+            { name: "Cloudflare测速", url: "https://speed.cloudflare.com/", icon: "fa-solid fa-gauge-simple-high" },
+            { name: "NodeFree", url: "https://nodefree.net/", icon: "fa-solid fa-server" },
+        ]
+    },
+    {
+        category: "创业",
+        links: [
+            { name: "Etsy Journal", url: "https://www.etsy.com/blog/category/gift-ideas", icon: "fa-brands fa-etsy" },
+            { name: "EverBee", url: "https://everbee.io/?via=brayden", icon: "fa-brands fa-etsy" },
+            { name: "Printify", url: "https://printify.com/?utm_source=affiliate&utm_medium=referral&utm_campaign=printify&utm_partner=baozhuchen1442&pscd=try.printify.com&ps_partner_key=YmFvemh1Y2hlbjE0NDI&ps_xid=d5sz7Ni7FK7zJ0&gsxid=d5sz7Ni7FK7zJ0&gspk=YmFvemh1Y2hlbjE0NDI", icon: "fa-solid fa-print" },
+            { name: "eRank", url: "https://erank.com/login?location=%2Fshop-info", icon: "fa-solid fa-ranking-star" },
+            { name: "Adspower", url: "https://app.adspower.net/registration?ref=mNXl04&snid=1750773453052150079_67QXmsxC&x_collect_uid=c7d24cc822ebe6461dadd937570a5ca6", icon: "fa-solid fa-rectangle-ad" },
+            { name: "Spocket", url: "https://www.spocket.co/?utm_source=affiliate&utm_medium=content&utm_campaign=88cc2b72a87c&pscd=get.spocket.co&ps_partner_key=ODhjYzJiNzJhODdj&ps_xid=tf4Ik8C00mclQo&gsxid=tf4Ik8C00mclQo&gspk=ODhjYzJiNzJhODdj", icon: "fa-solid fa-rocket" },
+        ]
+    },
+    {
+        category: "绘画",
+        links: [
+            { name: "花瓣网", url: "https://huaban.com/follow", icon: "fa-solid fa-fan" },
+            { name: "免抠图片网", url: "https://miankoutupian.com/", icon: "fa-solid fa-image" },
+            { name: "Pexels", url: "https://www.pexels.com/zh-cn/", icon: "fa-solid fa-camera-retro" },
+            { name: "MasterGo", url: "https://mastergo.com/", icon: "fa-solid fa-bezier-curve" },
+            { name: "pixiv", url: "https://www.pixiv.net/", icon: "fa-solid fa-palette" },
+            { name: "包小盒", url: "https://www.baoxiaohe.com/", icon: "fa-solid fa-box" },
+            { name: "Pinterest", url: "https://www.pinterest.com/", icon: "fa-brands fa-pinterest" },
+            { name: "稿定设计PS", url: "https://ps.gaoding.com/#/", icon: "fa-solid fa-pen-ruler" },
+            { name: "Yesicon", url: "https://yesicon.app/", icon: "fa-solid fa-icons" },
+            { name: "暖糖壁纸", url: "https://www.nuantang.net/", icon: "fa-solid fa-mobile-screen-button" },
+            { name: "Recraft", url: "https://www.recraft.ai/project/826ed289-bbdc-4991-9374-3b6bb803e34d", icon: "fa-solid fa-wand-magic-sparkles" },
+            { name: "AlphaNovel", url: "https://writer.alphanovel.io/", icon: "fa-solid fa-book" },
+            { name: "秀米XIUMI", url: "https://xiumi.us/#/studio/papers", icon: "fa-solid fa-newspaper" },
+            { name: "新媒宝", url: "https://www.xinmeibao.com/", icon: "fa-solid fa-thumbs-up" },
+        ]
+    },
+    {
+        category: "游戏",
+        links: [
+            { name: "幻兽帕鲁全配种工具", url: "https://palworld.caimogu.cc/breed.html", icon: "fa-solid fa-egg" },
+            { name: "Koyso", url: "https://koyso.to/", icon: "fa-solid fa-gamepad" },
+            { name: "暗黑核", url: "https://www.d2core.com/d4/builds", icon: "fa-solid fa-skull-crossbones" },
+            { name: "GW2 EzGame", url: "https://ezgame.cc/", icon: "fa-solid fa-dragon" },
+            { name: "激战2星岬岛", url: "https://gw2.wishingstarmoye.com/", icon: "fa-solid fa-star" },
+            { name: "黑神话悟空", url: "https://www.gamersky.com/tools/map/wukong/?mapId=49", icon: "fa-solid fa-crow" },
+            { name: "Switch520", url: "https://www.gamer520.com/", icon: "fa-solid fa-gamepad" },
+            { name: "激战2", url: "https://gw2.kongzhong.com/index.html", icon: "fa-solid fa-dragon" },
+            { name: "DD373", url: "https://www.dd373.com/", icon: "fa-solid fa-money-bill-transfer" },
+            { name: "激战2指挥官补给站", url: "https://act.kongzhong.com/gw2/CommanderTime/", icon: "fa-solid fa-bullhorn" },
+            { name: "宏设置汇总", url: "https://docs.qq.com/aio/DR3FBQmlib3RlWk9O?p=2hzBLypfxN3y3XS3PzC3Oi", icon: "fa-solid fa-keyboard" },
+            { name: "剑灵", url: "https://bns.qq.com/cp/a20250825jlzd/index.html", icon: "fa-solid fa-khanda" },
+            { name: "剑灵小助手", url: "https://www.bnszs.com/", icon: "fa-solid fa-hand-sparkles" },
+        ]
+    },
+    {
+        category: "零散书签",
+        links: [
+            { name: "KOOK", url: "https://www.kookapp.cn/app/channels/1555901723840018/7003862314912487", icon: "fa-solid fa-microphone" },
+            { name: "mac软件下载", url: "https://www.mac189.com/", icon: "fa-brands fa-apple" },
+            { name: "我爱MAC", url: "https://www.52mac.com/", icon: "fa-brands fa-apple" },
+            { name: "羽兔网", url: "https://www.yutu.cn/popsoft.html", icon: "fa-solid fa-feather-pointed" },
+            { name: "Apple Music", url: "https://music.apple.com/cn/library/albums", icon: "fa-brands fa-itunes-note" },
+            { name: "LKs", url: "https://lkssite.vip/", icon: "fa-solid fa-share-nodes" },
+            { name: "Hyperbeam", url: "https://hyperbeam.com/?c=Fb4CRvHk", icon: "fa-solid fa-tv" },
+            { name: "Proxy302", url: "https://www.proxy302.com/lp/?ref=MjDtdYZVssvZy8U&snid=1680620448488314399_BQ1rdOjV", icon: "fa-solid fa-server" },
+            { name: "Hubstudio", url: "https://www.hubstudio.io/", icon: "fa-solid fa-users" },
+            { name: "SMS-Activate", url: "https://sms-activate.org/", icon: "fa-solid fa-mobile-alt" },
+            { name: "魅力音乐网", url: "https://www.meiliyizu.com/", icon: "fa-solid fa-music" },
+            { name: "slidesgo", url: "https://slidesgo.com/", icon: "fa-solid fa-file-powerpoint" },
+            { name: "七尺宇", url: "https://www.qichiyu.com/", icon: "fa-solid fa-building-columns" },
+            { name: "巨量百应", url: "https://buyin.jinritemai.com/dashboard/live/control?btm_ppre=a0.b0.c0.d0&btm_pre=a10091.b089178.c809509.d0&btm_show_id=fe7bac2c-29e8-4459-9e07-7399ab54fec8&pre_universal_page_params_id=&universal_page_params_id=836e5782-bbda-48b0-bd44-ba082c46ebaa", icon: "fa-solid fa-bullhorn" },
+        ]
+    }
+];
+
+// 搜索功能
+const handleSearch = () => {
+    const searchInput = document.getElementById('searchInput');
+    const query = searchInput.value.toLowerCase().trim();
+    
+    const filteredData = linkData.map(category => {
+        const filteredLinks = category.links.filter(link => 
+            link.name.toLowerCase().includes(query) || 
+            link.url.toLowerCase().includes(query)
+        );
+        return { ...category, links: filteredLinks };
+    });
+    
+    renderLinks(filteredData);
+};
+
+// 渲染链接
+const fallbackColors = ['#e57373', '#81c784', '#64b5f6', '#ffb74d', '#9575cd', '#4db6ac', '#f06292'];
+
+const renderLinks = (data) => {
+    const linksContainer = document.getElementById('links-container');
+    const noResults = document.getElementById('no-results');
+    
+    linksContainer.innerHTML = '';
+    let colorIndex = 0;
+    if (data.every(cat => cat.links.length === 0)) {
+         noResults.style.display = 'block';
+         linksContainer.innerHTML = ''; // 清空容器
+         return;
+    }
+     noResults.style.display = 'none';
+
+    data.forEach(category => {
+        if (category.links.length === 0) return;
+
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'category';
+
+        const categoryTitle = document.createElement('h2');
+        categoryTitle.textContent = category.category;
+        categoryDiv.appendChild(categoryTitle);
+
+        const gridDiv = document.createElement('div');
+        gridDiv.className = 'links-grid';
+
+        category.links.forEach(link => {
+            const item = document.createElement('div');
+            item.className = 'link-item';
+            
+            const a = document.createElement('a');
+            a.href = link.url;
+            a.target = '_blank';
+            a.title = link.name;
+            
+            const iconWrapper = document.createElement('div');
+            iconWrapper.className = 'link-item-icon-wrapper';
+            
+            if (link.icon) {
+                const iconEl = document.createElement('i');
+                iconEl.className = `fa-icon ${link.icon}`;
+                iconWrapper.appendChild(iconEl);
+            } else {
+                const fallbackIcon = document.createElement('div');
+                fallbackIcon.className = 'fallback-icon';
+                
+                const firstChar = link.name.charAt(0).toUpperCase();
+                const color = fallbackColors[colorIndex % fallbackColors.length];
+                fallbackIcon.style.backgroundColor = color;
+                fallbackIcon.textContent = firstChar;
+                fallbackIcon.style.display = 'flex';
+                iconWrapper.appendChild(fallbackIcon);
+            }
+            colorIndex++;
+
+            const span = document.createElement('span');
+            span.textContent = link.name;
+
+            a.appendChild(iconWrapper);
+            a.appendChild(span);
+            item.appendChild(a);
+            gridDiv.appendChild(item);
+        });
+
+        categoryDiv.appendChild(gridDiv);
+        linksContainer.appendChild(categoryDiv);
+    });
+};
+
+// 时钟功能
+const updateClock = () => {
+    const clockEl = document.getElementById('clock');
+    const dateEl = document.getElementById('date');
+    const now = new Date();
+    
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    
+    clockEl.textContent = `${hours}:${minutes}`;
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][now.getDay()];
+    
+    dateEl.textContent = `${year}年${month}月${day}日 ${weekday}`;
+};
+
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    
+    // 渲染所有链接
+    renderLinks(linkData);
+    
+    // 更新时钟
+    updateClock();
+    setInterval(updateClock, 1000);
+    
+    // 添加搜索事件监听器
+    searchInput.addEventListener('input', handleSearch);
+});
