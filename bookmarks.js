@@ -41,6 +41,7 @@ const linkData = [
             { name: "Vercel", url: "https://vercel.com/hzcyds-projects", icon: "fa-solid fa-play" },
             { name: "Cloudflare Dashboard", url: "https://dash.cloudflare.com/d4a9883c0a7fa3caa0576fa68496a152/pages/view/my-query-app", icon: "fa-brands fa-cloudflare" },
 			{ name: "甲骨文", url: "https://cloud.oracle.com/?region=us-phoenix-1", icon: "fa-brands fa-cloudflare" },
+			{ name: "图标", url: "https://fontawesome.com/search", icon: "fa-solid fa-icons" },
         ]
     },
     {
